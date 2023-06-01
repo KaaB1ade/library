@@ -1,0 +1,101 @@
+@url = http://localhost:8080
+@json = Content-Type: application/json
+
+### admin登录
+POST {{url}}/admin
+{{json}}
+
+{
+    "account":"admin",
+    "password":"123456"
+}
+
+### 用户注册
+POST {{url}}/user/register
+{{json}}
+
+{
+    "account":"user0",
+    "password":"123456"
+}
+
+### 用户登录
+POST {{url}}/user/login
+{{json}}
+
+{
+    "account":"user1",
+    "password":"123456"
+}
+
+### 书籍搜索
+POST {{url}}/book/search
+{{json}}
+
+{
+    "name":"1",
+    "author":"kaa",
+    "category":""
+}
+
+### 书籍总数
+GET {{url}}/book/total_num
+{{json}}
+
+{
+    
+}
+
+### 书籍添加
+POST {{url}}/book/add_for_admin
+{{json}}
+token:bb4b86c5-30d4-4f8c-81a3-1fa83ec1c422
+
+{
+    "name":"1",
+    "author":"kaa",
+    "category":"1",
+    "fine":"1"
+}
+
+### 反馈添加
+POST {{url}}/report/add
+{{json}}
+
+{
+    "name":"1",
+    "mail":"123",
+    "content":"123456"
+}
+
+### 归还借阅书籍
+PUT {{url}}/book/_token/return_for_user
+{{json}}
+
+{
+    "id":"438699855016005"
+}
+
+### 封禁用户
+PUT {{url}}/user/overtime2
+{{json}}
+
+{
+    "id":"435132853792837"
+}
+
+### 用户查询书籍
+GET {{url}}/book/show_for_user
+{{json}}
+
+{
+}
+
+### 书籍借阅
+PUT {{url}}/book/borrow
+{{json}}
+
+{
+    "id":"438699855016005",
+    "user_account":"user1"
+}
